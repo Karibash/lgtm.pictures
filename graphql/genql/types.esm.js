@@ -1,7 +1,7 @@
 export default {
     "scalars": [
         1,
-        3,
+        2,
         5
     ],
     "types": {
@@ -10,41 +10,41 @@ export default {
                 1
             ],
             "title": [
-                1
+                2
             ],
             "url": [
-                1
+                2
             ],
             "__typename": [
-                3
+                2
             ]
         },
         "ID": {},
+        "String": {},
         "Mutation": {
             "createArticle": [
                 0,
                 {
                     "title": [
-                        3,
+                        2,
                         "String!"
                     ],
                     "url": [
-                        3,
+                        2,
                         "String!"
                     ]
                 }
             ],
             "__typename": [
-                3
+                2
             ]
         },
-        "String": {},
         "Query": {
             "articles": [
                 0
             ],
             "__typename": [
-                3
+                2
             ]
         },
         "Boolean": {}
