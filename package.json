@@ -2,6 +2,11 @@
   "name": "lgtm",
   "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "services",
+    "graphql",
+    "web"
+  ],
   "scripts": {
     "start": "sst start",
     "build": "sst build",
@@ -12,19 +17,14 @@
     "test": "sst load-config -- vitest run"
   },
   "devDependencies": {
+    "@serverless-stack/cli": "1.9.4",
+    "@serverless-stack/resources": "1.9.4",
+    "@tsconfig/node16": "1.0.3",
     "aws-cdk-lib": "2.32.0",
-    "@serverless-stack/cli": "^1.9.4",
-    "@serverless-stack/resources": "^1.9.4",
-    "typescript": "^4.8.2",
-    "@tsconfig/node16": "^1.0.3",
-    "vitest": "^0.22.1"
+    "typescript": "4.8.2",
+    "vitest": "0.22.1"
   },
-  "workspaces": [
-    "services",
-    "graphql",
-    "web"
-  ],
   "overrides": {
-    "graphql": "16.5.0"
+    "graphql": "16.6.0"
   }
 }

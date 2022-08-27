@@ -1,8 +1,9 @@
 {
   "name": "@lgtm/graphql",
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "dependencies": {
-    "@genql/cli": "^2.10.0"
+    "@genql/cli": "2.10.0"
   }
 }
