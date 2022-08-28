@@ -1,14 +1,15 @@
-import { StackContext, use, ViteStaticSite } from "@serverless-stack/resources";
-import { Api } from "./Api";
+import { StackContext, use, ViteStaticSite } from '@serverless-stack/resources';
 
-export function Web({ stack }: StackContext) {
+import { Api } from './Api';
+
+export const Web = ({ stack }: StackContext) => {
   const api = use(Api);
 
-  const site = new ViteStaticSite(stack, "site", {
-    path: "web",
-    buildCommand: "npm run build",
+  const site = new ViteStaticSite(stack, 'site', {
+    path: 'web',
+    buildCommand: 'npm run build',
     environment: {
-      VITE_GRAPHQL_URL: api.url + "/graphql",
+      VITE_GRAPHQL_URL: `${api.url}/graphql`,
     },
   });
 
@@ -17,4 +18,4 @@ export function Web({ stack }: StackContext) {
   });
 
   return api;
-}
+};

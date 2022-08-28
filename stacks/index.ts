@@ -1,18 +1,18 @@
-import { App } from "@serverless-stack/resources";
-import { Api } from "./Api";
-import { Database } from "./Database";
-import { Web } from "./Web";
+import { App } from '@serverless-stack/resources';
 
-export default function main(app: App) {
+import { Api } from './Api';
+import { Web } from './Web';
+
+export default (app: App) => {
   app.setDefaultFunctionProps({
-    runtime: "nodejs16.x",
-    srcPath: "services",
+    runtime: 'nodejs16.x',
+    srcPath: 'services',
     bundle: {
-      format: "esm"
-    }
+      format: 'esm',
+    },
   });
+
   app
-    .stack(Database)
     .stack(Api)
     .stack(Web);
-}
+};

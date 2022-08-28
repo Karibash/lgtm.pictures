@@ -1,37 +1,23 @@
-import {
-  StackContext,
-  use,
-  Api as ApiGateway,
-  Config,
-} from "@serverless-stack/resources";
-import { Database } from "./Database";
+import { StackContext, Api as ApiGateway, Config } from '@serverless-stack/resources';
 
-export function Api({ stack }: StackContext) {
-  const db = use(Database);
-
-  const api = new ApiGateway(stack, "api", {
-    defaults: {
-      function: {
-        permissions: [db.table],
-        config: [db.TABLE_NAME],
-      },
-    },
+export const Api = ({ stack }: StackContext) => {
+  const api = new ApiGateway(stack, 'api', {
     routes: {
-      "POST /graphql": {
-        type: "pothos",
+      'POST /graphql': {
+        type: 'pothos',
         function: {
-          handler: "functions/graphql/graphql.handler",
+          handler: 'functions/graphql/graphql.handler',
         },
-        schema: "services/functions/graphql/schema.ts",
-        output: "graphql/schema.graphql",
+        schema: 'services/functions/graphql/schema.ts',
+        output: 'graphql/schema.graphql',
         commands: [
-          "npx genql --output ./graphql/genql --schema ./graphql/schema.graphql --esm",
+          'npx genql --output ./graphql/genql --schema ./graphql/schema.graphql --esm',
         ],
       },
     },
   });
 
-  new Config.Parameter(stack, "API_URL", {
+  new Config.Parameter(stack, 'API_URL', {
     value: api.url,
   });
 
@@ -40,4 +26,4 @@ export function Api({ stack }: StackContext) {
   });
 
   return api;
-}
+};
