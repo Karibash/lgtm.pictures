@@ -8,6 +8,7 @@
     "web"
   ],
   "scripts": {
+    "generate": "npm run generate -ws --if-present",
     "start": "sst start",
     "build": "sst build",
     "deploy": "sst deploy",
@@ -21,6 +22,8 @@
     "@serverless-stack/resources": "1.9.4",
     "@tsconfig/node16": "1.0.3",
     "aws-cdk-lib": "2.32.0",
+    "npm-run-all": "4.1.5",
+    "npm-watch": "0.11.0",
     "typescript": "4.8.2",
     "vitest": "0.22.1"
   },

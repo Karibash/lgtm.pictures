@@ -3,7 +3,25 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "codegen": "graphql-codegen",
+    "genql": "genql --output genql --schema schemas/schema.graphql --esm",
+    "generate": "run-p codegen genql",
+    "generate:watch": "npm-watch"
+  },
+  "watch": {
+    "generate": {
+      "patterns": ["schemas/*.graphql"],
+      "extensions": "graphql"
+    }
+  },
   "dependencies": {
-    "@genql/cli": "2.10.0"
+    "@genql/runtime": "2.10.0",
+    "graphql": "16.6.0"
+  },
+  "devDependencies": {
+    "@genql/cli": "2.10.0",
+    "@graphql-codegen/cli": "2.11.8",
+    "@graphql-codegen/typescript": "2.7.3"
   }
 }
