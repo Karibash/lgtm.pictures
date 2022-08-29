@@ -1,13 +1,12 @@
-type Article {
+type FileUploadUrl {
   id: ID!
-  title: String!
   url: String!
 }
 
-type Mutation {
-  createArticle(title: String!, url: String!): Article!
+type Query {
+  stub: Boolean!
 }
 
-type Query {
-  articles: [Article!]!
+type Mutation {
+  createFileUploadUrl: FileUploadUrl!
 }
