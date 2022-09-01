@@ -15,7 +15,7 @@
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
-    "test": "sst load-config -- vitest run"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@serverless-stack/cli": "1.9.4",

@@ -1,18 +1,16 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from "vitest/config";
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     testTimeout: 30000,
+    setupFiles: [
+      'vitest.setup.ts',
+    ],
   },
-  logLevel: "info",
+  logLevel: 'info',
   esbuild: {
-    sourcemap: "both",
-  },
-  resolve: {
-    alias: {
-      "@lgtm/core": "./services/core",
-    },
+    sourcemap: 'both',
   },
 });
