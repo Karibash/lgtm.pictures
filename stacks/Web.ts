@@ -1,21 +1,15 @@
-import { StackContext, use, ViteStaticSite } from '@serverless-stack/resources';
+import { StackContext, use, NextjsSite } from '@serverless-stack/resources';
 
 import { Api } from './Api';
 
 export const Web = ({ stack }: StackContext) => {
   const api = use(Api);
 
-  const site = new ViteStaticSite(stack, 'site', {
+  return new NextjsSite(stack, 'site', {
     path: 'web',
-    buildCommand: 'npm run build',
+    nextBinPath: '../node_modules/.bin/next',
     environment: {
-      VITE_GRAPHQL_URL: `${api.url}/graphql`,
+      NEXT_PUBLIC_API_URL: api.url,
     },
   });
-
-  stack.addOutputs({
-    SITE_URL: site.url,
-  });
-
-  return api;
 };

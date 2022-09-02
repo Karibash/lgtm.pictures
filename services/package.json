@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {},
   "dependencies": {
-    "@aws-sdk/client-s3":"3.160.0",
+    "@aws-sdk/client-s3": "3.160.0",
     "@aws-sdk/s3-request-presigner": "3.160.0",
     "@serverless-stack/node": "1.9.4",
     "aws-sdk": "2.1204.0",

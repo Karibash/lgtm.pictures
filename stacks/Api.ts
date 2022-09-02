@@ -1,4 +1,4 @@
-import { StackContext, AppSyncApi, Config, use } from '@serverless-stack/resources';
+import { StackContext, AppSyncApi, use } from '@serverless-stack/resources';
 
 import { TemporalBucket } from './Bucket';
 
@@ -20,10 +20,6 @@ export const Api = ({ stack }: StackContext) => {
   });
 
   api.attachPermissionsToDataSource('Mutation createFileUploadUrl', [temporalBucket.bucket]);
-
-  new Config.Parameter(stack, 'API_URL', {
-    value: api.url,
-  });
 
   return api;
 };
