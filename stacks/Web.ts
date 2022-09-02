@@ -9,6 +9,7 @@ export const Web = ({ stack }: StackContext) => {
     path: 'web',
     nextBinPath: '../node_modules/.bin/next',
     environment: {
+      NEXT_PUBLIC_STAGE: stack.stage,
       NEXT_PUBLIC_API_URL: api.url,
     },
   });
