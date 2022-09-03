@@ -19,6 +19,50 @@ const theme = createTheme({
       'sans-serif',
     ].join(','),
   },
+  palette: {
+    mode: 'dark',
+    divider: '#44475a',
+    background: {
+      default: '#282a36',
+      paper: '#282a36',
+    },
+    primary: {
+      main: '#ff79c6',
+      light: '#ffacf9',
+      dark: '#c94695',
+      contrastText: '#000',
+    },
+    secondary: {
+      main: '#50fa7b',
+      light: '#8dffac',
+      dark: '#00c64c',
+      contrastText: '#000',
+    },
+    error: {
+      main: '#ff5555',
+      light: '#ff8982',
+      dark: '#c5162c',
+      contrastText: '#000',
+    },
+    warning: {
+      main: '#ffb86c',
+      light: '#ffea9c',
+      dark: '#c9883e',
+      contrastText: '#000',
+    },
+    info: {
+      main: '#8be9fd',
+      light: '#c0ffff',
+      dark: '#56b7ca',
+      contrastText: '#000',
+    },
+    success: {
+      main: '#50fa7b',
+      light: '#8dffac',
+      dark: '#00c64c',
+      contrastText: '#000',
+    },
+  },
 });
 
 export type PageComponent<P = {}> = NextPage<P> & {
