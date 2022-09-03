@@ -1,16 +1,16 @@
 import { PageComponent } from './_app';
 import ApplicationLayout from '../components/layouts/ApplicationLayout';
 
-const HomePage: PageComponent = () => {
+const BookmarksPage: PageComponent = () => {
   return (
     <div>
-      LATEST
+      BOOKMARKS
     </div>
   );
 };
 
-HomePage.getLayout = page => {
+BookmarksPage.getLayout = page => {
   return <ApplicationLayout>{page}</ApplicationLayout>;
 };
 
-export default HomePage;
+export default BookmarksPage;

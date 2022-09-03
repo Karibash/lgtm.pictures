@@ -1,16 +1,16 @@
 import { PageComponent } from './_app';
 import ApplicationLayout from '../components/layouts/ApplicationLayout';
 
-const HomePage: PageComponent = () => {
+const UploadsPage: PageComponent = () => {
   return (
     <div>
-      LATEST
+      UPLOADS
     </div>
   );
 };
 
-HomePage.getLayout = page => {
+UploadsPage.getLayout = page => {
   return <ApplicationLayout>{page}</ApplicationLayout>;
 };
 
-export default HomePage;
+export default UploadsPage;
