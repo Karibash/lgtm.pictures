@@ -2,8 +2,10 @@ import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { AppProps } from 'next/app';
+import { NextPage } from 'next';
+import { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
+import { ReactElement, ReactNode } from 'react';
 
 const cache = createCache({ key: 'css' });
 
@@ -19,7 +21,17 @@ const theme = createTheme({
   },
 });
 
+export type PageComponent<P = {}> = NextPage<P> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+export type AppProps = NextAppProps & {
+  Component: PageComponent;
+};
+
 const App = ({ Component, pageProps }: AppProps) => {
+  const getLayout = Component.getLayout ?? (page => page);
+
   // noinspection HtmlRequiredTitleElement
   return (
     <CacheProvider value={cache}>
@@ -31,7 +43,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <CssBaseline />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </CacheProvider>
   );
