@@ -22,7 +22,7 @@ const ApplicationLayout: React.FC<ApplicationLayoutProps> = ({
           <TabLink label="LATEST" value="/" href="/" />
           <TabLink label="TRENDS" value="/trends" href="/trends" />
           <TabLink label="UPLOADS" value="/uploads" href="/uploads" />
-          <TabLink label="BOOKMARKS" value="/bookmarks" href="/bookmarks" />
+          <TabLink label="FAVORITES" value="/favorites" href="/favorites" />
         </Tabs>
       </Box>
       {children}

@@ -1,16 +1,16 @@
 import { PageComponent } from './_app';
 import ApplicationLayout from '../components/layouts/ApplicationLayout';
 
-const BookmarksPage: PageComponent = () => {
+const FavoritesPage: PageComponent = () => {
   return (
     <div>
-      BOOKMARKS
+      FAVORITES
     </div>
   );
 };
 
-BookmarksPage.getLayout = page => {
+FavoritesPage.getLayout = page => {
   return <ApplicationLayout>{page}</ApplicationLayout>;
 };
 
-export default BookmarksPage;
+export default FavoritesPage;
