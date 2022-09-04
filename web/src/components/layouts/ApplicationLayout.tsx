@@ -25,7 +25,9 @@ const ApplicationLayout: React.FC<ApplicationLayoutProps> = ({
           <TabLink label="FAVORITES" value="/favorites" href="/favorites" />
         </Tabs>
       </Box>
-      {children}
+      <Box sx={{ py: 1 }}>
+        {children}
+      </Box>
     </Container>
   );
 };
