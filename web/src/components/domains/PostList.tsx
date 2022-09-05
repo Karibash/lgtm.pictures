@@ -11,7 +11,9 @@ const mocks = [...Array(50)].map((_, index) => ({
     width: 128 * (index % 3 ? 1 : 2),
     height: 128 * (index % 5 ? 1 : 2),
   },
+  viewed: Boolean(index % 5),
   viewCount: (index % 5) * 10,
+  favorited: Boolean(index % 3),
   favoriteCount: (index % 3) * 10,
 }));
 
