@@ -1,10 +1,11 @@
 import { PageComponent } from './_app';
+import PostList from '../components/domains/PostList';
 import ApplicationLayout from '../components/layouts/ApplicationLayout';
 
 const TrendsPage: PageComponent = () => {
   return (
     <div>
-      TRENDS
+      <PostList posts={[]} />
     </div>
   );
 };
