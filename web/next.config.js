@@ -5,6 +5,11 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
 };
 
 module.exports = nextConfig;
