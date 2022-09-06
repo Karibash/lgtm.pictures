@@ -7,7 +7,7 @@ import React, { useCallback, useRef } from 'react';
 import PostFavoriteButton from './PostFavoriteButton';
 import PostViewButton from './PostViewButton';
 
-export type PostProps = {
+export type PostListItemProps = {
   id: string;
   image: {
     url: string;
@@ -21,7 +21,7 @@ export type PostProps = {
   favoriteCount: number;
 };
 
-const Post: React.FC<PostProps> = ({
+const PostListItem: React.FC<PostListItemProps> = ({
   id,
   image,
   viewed,
@@ -68,4 +68,4 @@ const Post: React.FC<PostProps> = ({
   );
 };
 
-export default Post;
+export default PostListItem;
