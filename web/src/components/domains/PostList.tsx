@@ -6,10 +6,10 @@ import PostListItem, { PostListItemProps } from './PostListItem';
 const mocks = [...Array(50)].map((_, index) => ({
   id: index.toString(),
   image: {
-    url: `https://via.placeholder.com/${128 * (index % 3 ? 1 : 2)}x${128 * (index % 5 ? 1 : 2)}`,
+    url: `https://via.placeholder.com/${512 * (index % 3 ? 1 : 2)}x${512 * (index % 5 ? 1 : 2)}`,
     title: index.toString(),
-    width: 128 * (index % 3 ? 1 : 2),
-    height: 128 * (index % 5 ? 1 : 2),
+    width: 512 * (index % 3 ? 1 : 2),
+    height: 512 * (index % 5 ? 1 : 2),
   },
   viewed: Boolean(index % 5),
   viewCount: (index % 5) * 10,
