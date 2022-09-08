@@ -1,6 +1,6 @@
-import { PageComponent } from './_app';
 import PostList from '../components/domains/PostList';
 import ApplicationLayout from '../components/layouts/ApplicationLayout';
+import { PageComponent } from './_app';
 
 const FavoritesPage: PageComponent = () => {
   return (

@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import React, { useCallback } from 'react';
 
-import { useSnackbar } from '../../hooks/useSnackbar';
+import { useSnackbar } from '../../../../hooks/useSnackbar';
 
 const Wrapper = styled(Box)`
   &:after {
@@ -92,7 +92,7 @@ const Footer = styled(Box)`
   }
 `;
 
-export type PostListItemImageProps = {
+export type ItemImageProps = {
   id: string;
   image: {
     url: string;
@@ -103,7 +103,7 @@ export type PostListItemImageProps = {
   viewCount: number;
 };
 
-const PostListItemImage: React.FC<PostListItemImageProps> = ({
+const ItemImage: React.FC<ItemImageProps> = ({
   id,
   image,
   viewCount,
@@ -157,4 +157,4 @@ const PostListItemImage: React.FC<PostListItemImageProps> = ({
   );
 };
 
-export default PostListItemImage;
+export default ItemImage;

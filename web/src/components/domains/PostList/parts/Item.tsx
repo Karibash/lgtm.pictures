@@ -4,16 +4,16 @@ import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
 import React, { useCallback, useRef } from 'react';
 
-import PostFavoriteButton from './PostFavoriteButton';
-import PostListItemImage, { PostListItemImageProps } from './PostListItemImage';
+import FavoriteButton from '../../FavoriteButton';
+import ItemImage, { ItemImageProps } from './ItemImage';
 
-export type PostListItemProps = PostListItemImageProps & {
+export type ItemProps = ItemImageProps & {
   id: string;
   favorited: boolean;
   favoriteCount: number;
 };
 
-const PostListItem: React.FC<PostListItemProps> = ({
+const Item: React.FC<ItemProps> = ({
   favorited,
   favoriteCount,
   ...props
@@ -28,7 +28,7 @@ const PostListItem: React.FC<PostListItemProps> = ({
 
   return (
     <Paper elevation={6} sx={{ overflow: 'hidden', cursor: 'pointer' }}>
-      <PostListItemImage {...props} />
+      <ItemImage {...props} />
       <Stack
         ref={footerRef}
         direction="row"
@@ -40,7 +40,7 @@ const PostListItem: React.FC<PostListItemProps> = ({
         onClick={handleClickFooter}
       >
         <Stack direction="row" alignItems="center">
-          <PostFavoriteButton favorited={favorited} />
+          <FavoriteButton favorited={favorited} />
           <Typography ml={0.5}>{favoriteCount}</Typography>
         </Stack>
       </Stack>
@@ -48,4 +48,4 @@ const PostListItem: React.FC<PostListItemProps> = ({
   );
 };
 
-export default PostListItem;
+export default Item;

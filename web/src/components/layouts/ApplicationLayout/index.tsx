@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import TabLink from '../parts/TabLink';
+import TabLink from '../../elements/TabLink';
 
 export type ApplicationLayoutProps = {
   children: React.ReactElement;

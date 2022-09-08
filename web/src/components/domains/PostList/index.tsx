@@ -1,7 +1,7 @@
 import Masonry from '@mui/lab/Masonry';
 import React from 'react';
 
-import PostListItem, { PostListItemProps } from './PostListItem';
+import Item, { ItemProps } from './parts/Item';
 
 const mocks = [...Array(50)].map((_, index) => ({
   id: index.toString(),
@@ -17,7 +17,7 @@ const mocks = [...Array(50)].map((_, index) => ({
 }));
 
 export type PostListProps = {
-  posts: PostListItemProps[];
+  posts: ItemProps[];
 };
 
 const PostList: React.FC<PostListProps> = ({
@@ -26,7 +26,7 @@ const PostList: React.FC<PostListProps> = ({
   return (
     <Masonry columns={{ lg: 5, md: 4, sm: 3, xs: 2 }} spacing={1}>
       {[...posts, ...mocks].map(post => (
-        <PostListItem key={post.id} {...post} />
+        <Item key={post.id} {...post} />
       ))}
     </Masonry>
   );

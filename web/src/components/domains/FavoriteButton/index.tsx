@@ -3,22 +3,26 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IconButton from '@mui/material/IconButton';
 import React, { useCallback } from 'react';
 
-export type PostFavoriteButtonProps = {
+export type FavoriteButtonProps = {
   favorited: boolean;
 };
 
-const PostFavoriteButton: React.FC<PostFavoriteButtonProps> = ({
+const FavoriteButton: React.FC<FavoriteButtonProps> = ({
   favorited,
 }) => {
-  const handleOnClick = useCallback(() => {
-    console.log('PostFavoriteButton.handleOnClick');
+  const handleClick = useCallback(() => {
+    console.log('FavoriteButton.handleClick');
   }, []);
 
   return (
-    <IconButton aria-label="favorite post" color={favorited ? 'primary': 'default'} onClick={handleOnClick}>
+    <IconButton
+      title={favorited ? 'unfavorite' : 'favorite'}
+      color={favorited ? 'primary': 'default'}
+      onClick={handleClick}
+    >
       {favorited ? <FavoriteIcon /> : <FavoriteBorderIcon />}
     </IconButton>
   );
 };
 
-export default PostFavoriteButton;
+export default FavoriteButton;

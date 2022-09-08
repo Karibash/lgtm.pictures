@@ -1,5 +1,5 @@
-import { PageComponent } from './_app';
 import ApplicationLayout from '../components/layouts/ApplicationLayout';
+import { PageComponent } from './_app';
 
 const UploadsPage: PageComponent = () => {
   return (
