@@ -1,50 +1,34 @@
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useCallback, useRef } from 'react';
 
 import PostFavoriteButton from './PostFavoriteButton';
-import PostViewButton from './PostViewButton';
+import PostListItemImage, { PostListItemImageProps } from './PostListItemImage';
 
-export type PostListItemProps = {
+export type PostListItemProps = PostListItemImageProps & {
   id: string;
-  image: {
-    url: string;
-    title: string;
-    width: number;
-    height: number;
-  };
-  viewed: boolean;
-  viewCount: number;
   favorited: boolean;
   favoriteCount: number;
 };
 
 const PostListItem: React.FC<PostListItemProps> = ({
-  id,
-  image,
-  viewed,
-  viewCount,
   favorited,
   favoriteCount,
+  ...props
 }) => {
   const footerRef = useRef();
+  const router = useRouter();
 
   const handleClickFooter = useCallback<React.MouseEventHandler>(event => {
     if (event.target !== footerRef.current) return;
-    console.log('Post.handleClickFooter');
-  }, []);
+    void router.push(`/posts/${props.id}`);
+  }, [props.id, router]);
 
   return (
     <Paper elevation={6} sx={{ overflow: 'hidden', cursor: 'pointer' }}>
-      <Image
-        layout="responsive"
-        src={image.url}
-        alt={image.title}
-        width={image.width}
-        height={image.height}
-      />
+      <PostListItemImage {...props} />
       <Stack
         ref={footerRef}
         direction="row"
@@ -58,10 +42,6 @@ const PostListItem: React.FC<PostListItemProps> = ({
         <Stack direction="row" alignItems="center">
           <PostFavoriteButton favorited={favorited} />
           <Typography ml={0.5}>{favoriteCount}</Typography>
-        </Stack>
-        <Stack direction="row" alignItems="center">
-          <PostViewButton viewed={viewed} />
-          <Typography ml={0.5}>{viewCount}</Typography>
         </Stack>
       </Stack>
     </Paper>
