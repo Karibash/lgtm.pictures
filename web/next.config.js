@@ -6,6 +6,7 @@ const nextConfig = {
     emotion: true,
   },
   experimental: {
+    legacyBrowsers: false,
     images: {
       unoptimized: true,
     },
