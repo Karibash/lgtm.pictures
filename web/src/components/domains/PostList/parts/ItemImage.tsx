@@ -5,7 +5,6 @@ import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import Snackbar from '@mui/material/Snackbar';
 import Stack from '@mui/material/Stack';
 import { alpha, styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
@@ -108,7 +107,7 @@ const ItemImage: React.FC<ItemImageProps> = ({
   image,
   viewCount,
 }) => {
-  const { Snackbar, ...snackbar } = useSnackbar();
+  const snackbar = useSnackbar();
 
   const handleClickImage = useCallback(() => {
     void navigator.clipboard.writeText(`![LGTM](${image.url})`);
@@ -152,7 +151,6 @@ const ItemImage: React.FC<ItemImageProps> = ({
           <OpenInNewIcon fontSize="small" />
         </IconButton>
       </Footer>
-      <Snackbar autoHideDuration={2000} />
     </Wrapper>
   );
 };

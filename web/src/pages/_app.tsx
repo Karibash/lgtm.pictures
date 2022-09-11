@@ -7,6 +7,8 @@ import { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
 import { ReactElement, ReactNode } from 'react';
 
+import { Snackbar } from '../hooks/useSnackbar';
+
 const cache = createCache({ key: 'css' });
 
 const theme = createTheme({
@@ -88,6 +90,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         </Head>
         <CssBaseline />
         {getLayout(<Component {...pageProps} />)}
+        <Snackbar autoHideDuration={2000} />
       </ThemeProvider>
     </CacheProvider>
   );
