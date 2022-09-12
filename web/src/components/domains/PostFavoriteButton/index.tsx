@@ -4,17 +4,17 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import React, { useCallback } from 'react';
 
-export type FavoriteButtonProps = {
+export type PostFavoriteButtonProps = {
   favorited: boolean;
   size?: IconButtonProps['size'];
 };
 
-const FavoriteButton: React.FC<FavoriteButtonProps> = ({
+const PostFavoriteButton: React.FC<PostFavoriteButtonProps> = ({
   favorited,
   size,
 }) => {
   const handleClick = useCallback(() => {
-    console.log('FavoriteButton.handleClick');
+    console.log('PostFavoriteButton.handleClick');
   }, []);
 
   return (
@@ -30,4 +30,4 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
   );
 };
 
-export default FavoriteButton;
+export default PostFavoriteButton;

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useRef } from 'react';
 
 import { useRootUrl } from '../../../../hooks/useRootUrl';
-import FavoriteButton from '../../FavoriteButton';
+import PostFavoriteButton from '../../PostFavoriteButton';
 import ShareButton from '../../ShareButton';
 import ItemImage, { ItemImageProps } from './ItemImage';
 
@@ -43,7 +43,7 @@ const Item: React.FC<ItemProps> = ({
         onClick={handleClickFooter}
       >
         <Stack direction="row" alignItems="center">
-          <FavoriteButton favorited={favorited} />
+          <PostFavoriteButton favorited={favorited} />
           <Typography ml={0.5}>{favoriteCount}</Typography>
         </Stack>
         <Provider>
