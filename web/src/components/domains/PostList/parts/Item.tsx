@@ -7,7 +7,7 @@ import React, { useCallback, useRef } from 'react';
 
 import { useRootUrl } from '../../../../hooks/useRootUrl';
 import PostFavoriteButton from '../../PostFavoriteButton';
-import ShareButton from '../../ShareButton';
+import ShareUrlButton from '../../ShareUrlButton';
 import ItemImage, { ItemImageProps } from './ItemImage';
 
 export type ItemProps = ItemImageProps & {
@@ -47,7 +47,7 @@ const Item: React.FC<ItemProps> = ({
           <Typography ml={0.5}>{favoriteCount}</Typography>
         </Stack>
         <Provider>
-          <ShareButton url={`${rootUrl}/posts/${props.id}`} />
+          <ShareUrlButton url={`${rootUrl}/posts/${props.id}`} />
         </Provider>
       </Stack>
     </Paper>

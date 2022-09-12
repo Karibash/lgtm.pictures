@@ -13,12 +13,12 @@ import { useMenu } from '../../../hooks/useMenu';
 import { useSnackbar } from '../../../hooks/useSnackbar';
 import Link from './parts/Link';
 
-export type ShareButtonProps = {
+export type ShareUrlButtonProps = {
   url: string;
   size?: IconButtonProps['size'];
 };
 
-const ShareButton: React.FC<ShareButtonProps> = ({
+const ShareUrlButton: React.FC<ShareUrlButtonProps> = ({
   url,
   size,
 }) => {
@@ -67,4 +67,4 @@ const ShareButton: React.FC<ShareButtonProps> = ({
   );
 };
 
-export default ShareButton;
+export default ShareUrlButton;
