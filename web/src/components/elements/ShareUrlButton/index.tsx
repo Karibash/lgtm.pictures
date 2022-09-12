@@ -37,7 +37,7 @@ const ShareUrlButton: React.FC<ShareUrlButtonProps> = ({
 
   return (
     <>
-      <Tooltip enterDelay={1000} title="share">
+      <Tooltip enterDelay={1000} title="share url">
         <IconButton color="secondary" ref={buttonRef} size={size} onClick={menu.show}>
           <ShareIcon fontSize={size} />
         </IconButton>

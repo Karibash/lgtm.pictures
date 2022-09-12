@@ -6,8 +6,8 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useRef } from 'react';
 
 import { useRootUrl } from '../../../../hooks/useRootUrl';
+import ShareUrlButton from '../../../elements/ShareUrlButton';
 import PostFavoriteButton from '../../PostFavoriteButton';
-import ShareUrlButton from '../../ShareUrlButton';
 import ItemImage, { ItemImageProps } from './ItemImage';
 
 export type ItemProps = ItemImageProps & {
