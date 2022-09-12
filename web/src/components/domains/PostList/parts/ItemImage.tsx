@@ -44,6 +44,15 @@ const Wrapper = styled(Box)`
     > .header {
       opacity: 1;
     }
+
+    > .footer {
+      opacity: 1;
+      transform: translateY(0%) scaleY(100%);
+    }
+  }
+
+  .MuiButtonBase-root {
+    pointer-events: auto;
   }
 `;
 
@@ -60,10 +69,12 @@ const Header = styled(Box)`
   opacity: 0;
   top: 0;
   right: 0;
+  width: 100%;
   padding: 4px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  pointer-events: none;
   transition: ${props => {
     return props.theme.transitions.create(['opacity'], {
       duration: props.theme.transitions.duration.short,
@@ -74,6 +85,7 @@ const Header = styled(Box)`
 const Footer = styled(Box)`
   position: absolute;
   z-index: 1;
+  opacity: 1;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -85,10 +97,12 @@ const Footer = styled(Box)`
   justify-content: space-between;
   pointer-events: none;
   background-color: ${props => alpha(props.theme.palette.background.default, .48)};
-
-  .MuiButtonBase-root {
-    pointer-events: auto;
-  }
+  transform: translateY(50%) scaleY(0%);
+  transition: ${props => {
+    return props.theme.transitions.create(['opacity', 'transform'], {
+      duration: props.theme.transitions.duration.short,
+    });
+  }};
 `;
 
 export type ItemImageProps = {
@@ -141,15 +155,15 @@ const ItemImage: React.FC<ItemImageProps> = ({
         <IconButton size="small" color="error" title="投稿をブロックする" onClick={handleClickBlock}>
           <BlockIcon fontSize="small" />
         </IconButton>
+        <IconButton size="small" target="_blank" rel="noreferrer noopener" title="詳細画面を開く" href={`/posts/${id}`}>
+          <OpenInNewIcon fontSize="small" />
+        </IconButton>
       </Header>
-      <Footer>
+      <Footer className="footer">
         <Stack direction="row" ml={.25}>
           <VisibilityIcon fontSize="small" />
           <Typography fontSize="small" ml={.5}>{viewCount}</Typography>
         </Stack>
-        <IconButton size="small" target="_blank" rel="noreferrer noopener" title="詳細画面を開く" href={`/posts/${id}`}>
-          <OpenInNewIcon fontSize="small" />
-        </IconButton>
       </Footer>
     </Wrapper>
   );
