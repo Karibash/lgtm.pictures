@@ -3,8 +3,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import ShareIcon from '@mui/icons-material/Share';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import React, { useCallback, useRef } from 'react';
 
@@ -14,10 +15,12 @@ import Link from './parts/Link';
 
 export type ShareButtonProps = {
   url: string;
+  size?: IconButtonProps['size'];
 };
 
 const ShareButton: React.FC<ShareButtonProps> = ({
   url,
+  size,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const { Menu, MenuItem, ...menu } = useMenu(buttonRef);
@@ -34,9 +37,11 @@ const ShareButton: React.FC<ShareButtonProps> = ({
 
   return (
     <>
-      <IconButton ref={buttonRef} title="share" color="secondary" onClick={menu.show}>
-        <ShareIcon />
-      </IconButton>
+      <Tooltip enterDelay={1000} title="share">
+        <IconButton color="secondary" ref={buttonRef} size={size} onClick={menu.show}>
+          <ShareIcon fontSize={size} />
+        </IconButton>
+      </Tooltip>
       <Menu>
         <MenuItem>
           <Link href={`https://twitter.com/share?url=${url}&hashtags=LooksToMe`}>
