@@ -1,10 +1,13 @@
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { Provider } from 'jotai';
 import { useRouter } from 'next/router';
 import React, { useCallback, useRef } from 'react';
 
+import { useRootUrl } from '../../../../hooks/useRootUrl';
 import FavoriteButton from '../../FavoriteButton';
+import ShareButton from '../../ShareButton';
 import ItemImage, { ItemImageProps } from './ItemImage';
 
 export type ItemProps = ItemImageProps & {
@@ -20,6 +23,7 @@ const Item: React.FC<ItemProps> = ({
 }) => {
   const footerRef = useRef();
   const router = useRouter();
+  const rootUrl = useRootUrl();
 
   const handleClickFooter = useCallback<React.MouseEventHandler>(event => {
     if (event.target !== footerRef.current) return;
@@ -36,13 +40,15 @@ const Item: React.FC<ItemProps> = ({
         alignItems="center"
         spacing={2}
         p={0.5}
-        pr={1.5}
         onClick={handleClickFooter}
       >
         <Stack direction="row" alignItems="center">
           <FavoriteButton favorited={favorited} />
           <Typography ml={0.5}>{favoriteCount}</Typography>
         </Stack>
+        <Provider>
+          <ShareButton url={`${rootUrl}/posts/${props.id}`} />
+        </Provider>
       </Stack>
     </Paper>
   );

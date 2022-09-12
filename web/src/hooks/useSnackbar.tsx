@@ -1,12 +1,13 @@
 import MaterialSnackbar, { SnackbarProps } from '@mui/material/Snackbar';
-import { atom, useAtom, useSetAtom } from 'jotai';
+import { atom, Provider, useAtom, useSetAtom } from 'jotai';
 import React, { useCallback } from 'react';
 import { v4 as uuid } from 'uuid';
 
+const snackbarScope = Symbol();
 const snackbarPropsAtom = atom<SnackbarProps>({});
 
-export const Snackbar: React.FC<SnackbarProps> = props => {
-  const [snackbarProps, setSnackbarProps] = useAtom(snackbarPropsAtom);
+const Snackbar: React.FC<Omit<SnackbarProps, 'children'>> = props => {
+  const [snackbarProps, setSnackbarProps] = useAtom(snackbarPropsAtom, snackbarScope);
 
   const handleClose = useCallback<Exclude<SnackbarProps['onClose'], undefined>>(() => {
     setSnackbarProps(props => ({
@@ -18,8 +19,20 @@ export const Snackbar: React.FC<SnackbarProps> = props => {
   return <MaterialSnackbar {...props} {...snackbarProps} onClose={handleClose} />;
 };
 
+export const SnackbarProvider: React.FC<Omit<SnackbarProps, 'children'> & { children: React.ReactNode }> = ({
+  children,
+  ...props
+}) => {
+  return (
+    <Provider scope={snackbarScope}>
+      {children}
+      <Snackbar {...props} />
+    </Provider>
+  );
+}
+
 export const useSnackbar = () => {
-  const setSnackbarProps = useSetAtom(snackbarPropsAtom);
+  const setSnackbarProps = useSetAtom(snackbarPropsAtom, snackbarScope);
 
   const show = useCallback((content: React.ReactElement, options?: SnackbarProps) => {
     setSnackbarProps({
