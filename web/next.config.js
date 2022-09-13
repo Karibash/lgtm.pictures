@@ -5,11 +5,11 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
+  images: {
+    unoptimized: true,
+  },
   experimental: {
     legacyBrowsers: false,
-    images: {
-      unoptimized: true,
-    },
   },
 };
 
