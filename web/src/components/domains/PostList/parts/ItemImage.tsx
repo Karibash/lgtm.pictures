@@ -1,9 +1,7 @@
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import { alpha, styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
@@ -11,6 +9,7 @@ import Image from 'next/image';
 import React, { useCallback } from 'react';
 
 import { useSnackbar } from '../../../../hooks/useSnackbar';
+import OpenInNewButton from '../../../elements/OpenInNewButton';
 import PostBlockButton from '../../PostBlockButton';
 
 const Wrapper = styled(Box)`
@@ -145,9 +144,7 @@ const ItemImage: React.FC<ItemImageProps> = ({
       </ImageWrapper>
       <Header className="header">
         <PostBlockButton size="small" />
-        <IconButton size="small" target="_blank" rel="noreferrer noopener" title="詳細画面を開く" href={`/posts/${id}`}>
-          <OpenInNewIcon fontSize="small" />
-        </IconButton>
+        <OpenInNewButton size="small" href={`/posts/${id}`} />
       </Header>
       <Footer className="footer">
         <Stack direction="row" ml={.25}>
