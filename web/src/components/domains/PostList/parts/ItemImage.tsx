@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { alpha, styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import React, { useCallback } from 'react';
 
 import { useSnackbar } from '../../../../hooks/useSnackbar';
@@ -60,6 +60,13 @@ const ImageWrapper = styled(Button)`
   display: block;
   padding: 0;
   width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 `;
 
 const Header = styled(Box)`
@@ -135,7 +142,6 @@ const ItemImage: React.FC<ItemImageProps> = ({
     <Wrapper position="relative">
       <ImageWrapper onClick={handleClickImage}>
         <Image
-          layout="responsive"
           src={image.url}
           alt={image.title}
           width={image.width}
