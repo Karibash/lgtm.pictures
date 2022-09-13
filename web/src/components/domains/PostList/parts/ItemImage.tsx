@@ -1,4 +1,3 @@
-import BlockIcon from '@mui/icons-material/Block';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Alert from '@mui/material/Alert';
@@ -12,6 +11,7 @@ import Image from 'next/image';
 import React, { useCallback } from 'react';
 
 import { useSnackbar } from '../../../../hooks/useSnackbar';
+import PostBlockButton from '../../PostBlockButton';
 
 const Wrapper = styled(Box)`
   &:after {
@@ -132,14 +132,6 @@ const ItemImage: React.FC<ItemImageProps> = ({
     );
   }, [image.url, snackbar]);
 
-  const handleClickBlock = useCallback(() => {
-    snackbar.show(
-      <Alert severity="success" elevation={6} sx={{ width: '100%' }} onClose={snackbar.close}>
-        <Typography>Blocked!</Typography>
-      </Alert>
-    );
-  }, [snackbar]);
-
   return (
     <Wrapper position="relative">
       <ImageWrapper onClick={handleClickImage}>
@@ -152,9 +144,7 @@ const ItemImage: React.FC<ItemImageProps> = ({
         />
       </ImageWrapper>
       <Header className="header">
-        <IconButton size="small" color="error" title="投稿をブロックする" onClick={handleClickBlock}>
-          <BlockIcon fontSize="small" />
-        </IconButton>
+        <PostBlockButton size="small" />
         <IconButton size="small" target="_blank" rel="noreferrer noopener" title="詳細画面を開く" href={`/posts/${id}`}>
           <OpenInNewIcon fontSize="small" />
         </IconButton>
