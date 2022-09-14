@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:storybook": "start-storybook -p 6006",
     "build": "next build",
+    "build:storybook": "build-storybook",
     "start": "next start",
     "lint": "next lint"
   },
@@ -27,12 +29,21 @@
   "devDependencies": {
     "@serverless-stack/static-site-env": "1.9.4",
     "@sls-next/lambda-at-edge": "3.7.0",
+    "@storybook/addon-a11y": "6.5.12",
+    "@storybook/addon-actions": "6.5.12",
+    "@storybook/addon-essentials": "6.5.12",
+    "@storybook/addon-links": "6.5.12",
+    "@storybook/builder-webpack5": "6.5.12",
+    "@storybook/manager-webpack5": "6.5.12",
+    "@storybook/react": "6.5.12",
     "@types/node": "18.7.14",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "@types/uuid": "8.3.4",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
+    "storybook-addon-next": "1.6.9",
+    "storybook-addon-swc": "1.1.8",
     "typescript": "4.8.2"
   }
 }
