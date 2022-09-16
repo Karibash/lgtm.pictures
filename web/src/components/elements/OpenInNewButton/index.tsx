@@ -1,11 +1,11 @@
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 
 export type OpenInNewButtonProps = {
   href: string;
-  size?: IconButtonProps['size'];
+  size?: 'small' | 'medium' | 'large';
 };
 
 const OpenInNewButton: React.FC<OpenInNewButtonProps> = ({

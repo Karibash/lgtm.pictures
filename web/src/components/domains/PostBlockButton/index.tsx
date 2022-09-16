@@ -1,6 +1,6 @@
 import BlockIcon from '@mui/icons-material/Block';
 import Alert from '@mui/material/Alert';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import React, { useCallback } from 'react';
@@ -8,7 +8,7 @@ import React, { useCallback } from 'react';
 import { useSnackbar } from '../../../hooks/useSnackbar';
 
 export type PostBlockButtonProps = {
-  size?: IconButtonProps['size'];
+  size?: 'small' | 'medium' | 'large';
 };
 
 const PostBlockButton: React.FC<PostBlockButtonProps> = ({

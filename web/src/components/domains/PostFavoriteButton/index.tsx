@@ -1,12 +1,12 @@
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import React, { useCallback } from 'react';
 
 export type PostFavoriteButtonProps = {
   favorited: boolean;
-  size?: IconButtonProps['size'];
+  size?: 'small' | 'medium' | 'large';
 };
 
 const PostFavoriteButton: React.FC<PostFavoriteButtonProps> = ({

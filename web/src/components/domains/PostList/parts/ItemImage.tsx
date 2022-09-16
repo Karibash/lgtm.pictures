@@ -1,8 +1,6 @@
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import { alpha, styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Image from 'next/future/image';
@@ -10,6 +8,7 @@ import React, { useCallback } from 'react';
 
 import { useSnackbar } from '../../../../hooks/useSnackbar';
 import OpenInNewButton from '../../../elements/OpenInNewButton';
+import ViewCount from '../../../elements/ViewCount';
 import PostBlockButton from '../../PostBlockButton';
 
 const Wrapper = styled(Box)`
@@ -153,10 +152,7 @@ const ItemImage: React.FC<ItemImageProps> = ({
         <OpenInNewButton size="small" href={`/posts/${id}`} />
       </Header>
       <Footer className="footer">
-        <Stack direction="row" ml={.25}>
-          <VisibilityIcon fontSize="small" />
-          <Typography fontSize="small" ml={.5}>{viewCount}</Typography>
-        </Stack>
+        <ViewCount size="small" count={viewCount} />
       </Footer>
     </Wrapper>
   );

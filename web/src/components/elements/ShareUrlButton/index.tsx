@@ -3,7 +3,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import ShareIcon from '@mui/icons-material/Share';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Alert from '@mui/material/Alert';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
@@ -15,7 +15,7 @@ import Link from './parts/Link';
 
 export type ShareUrlButtonProps = {
   url: string;
-  size?: IconButtonProps['size'];
+  size?: 'small' | 'medium' | 'large';
 };
 
 const ShareUrlButton: React.FC<ShareUrlButtonProps> = ({
