@@ -29,7 +29,7 @@ export const SnackbarProvider: React.FC<Omit<SnackbarProps, 'children'> & { chil
       <Snackbar {...props} />
     </Provider>
   );
-}
+};
 
 export const useSnackbar = () => {
   const setSnackbarProps = useSetAtom(snackbarPropsAtom, snackbarScope);

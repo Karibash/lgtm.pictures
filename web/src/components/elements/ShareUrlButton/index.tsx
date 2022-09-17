@@ -31,7 +31,7 @@ const ShareUrlButton: React.FC<ShareUrlButtonProps> = ({
     snackbar.show(
       <Alert severity="success" elevation={6} sx={{ width: '100%' }} onClose={snackbar.close}>
         <Typography>Copied!</Typography>
-      </Alert>
+      </Alert>,
     );
   }, [snackbar, url]);
 

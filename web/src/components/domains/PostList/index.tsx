@@ -3,7 +3,7 @@ import React from 'react';
 
 import Item, { ItemProps } from './parts/Item';
 
-const mocks = [...Array(50)].map((_, index) => ({
+const mocks = [...Array<undefined>(50)].map((_, index) => ({
   id: index.toString(),
   image: {
     url: `https://via.placeholder.com/${512 * (index % 3 ? 1 : 2)}x${512 * (index % 5 ? 1 : 2)}`,

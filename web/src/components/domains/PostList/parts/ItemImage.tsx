@@ -133,7 +133,7 @@ const ItemImage: React.FC<ItemImageProps> = ({
     snackbar.show(
       <Alert severity="success" elevation={6} sx={{ width: '100%' }} onClose={snackbar.close}>
         <Typography>Copied!</Typography>
-      </Alert>
+      </Alert>,
     );
   }, [image.url, snackbar]);
 

@@ -67,7 +67,7 @@ const theme = createTheme({
   },
 });
 
-export type PageComponent<P = {}> = NextPage<P> & {
+export type PageComponent<P = Record<string, unknown>> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 

@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof PostList> = args => <PostList {...args} />
 
 export const Default = Template.bind({});
 Default.args = {
-  posts: [...Array(50)].map((_, index) => ({
+  posts: [...Array<undefined>(50)].map((_, index) => ({
     id: index.toString(),
     image: {
       url: `https://via.placeholder.com/${512 * (index % 3 ? 1 : 2)}x${512 * (index % 5 ? 1 : 2)}`,
