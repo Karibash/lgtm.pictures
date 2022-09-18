@@ -1,10 +1,8 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Tabs from '@mui/material/Tabs';
-import { useRouter } from 'next/router';
 import React from 'react';
 
-import TabLink from '../../elements/TabLink';
+import ApplicationNavigation from '../../domains/ApplicationNavigation';
 
 export type ApplicationLayoutProps = {
   children: React.ReactElement;
@@ -13,18 +11,9 @@ export type ApplicationLayoutProps = {
 const ApplicationLayout: React.FC<ApplicationLayoutProps> = ({
   children,
 }) => {
-  const router = useRouter();
-
   return (
     <Container>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs variant="fullWidth" value={router.pathname}>
-          <TabLink label="LATEST" value="/" href="/" />
-          <TabLink label="TRENDS" value="/trends" href="/trends" />
-          <TabLink label="UPLOADS" value="/uploads" href="/uploads" />
-          <TabLink label="FAVORITES" value="/favorites" href="/favorites" />
-        </Tabs>
-      </Box>
+      <ApplicationNavigation />
       <Box sx={{ py: 1 }}>
         {children}
       </Box>
