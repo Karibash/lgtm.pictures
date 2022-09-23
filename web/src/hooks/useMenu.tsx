@@ -37,7 +37,7 @@ const MenuItem: React.FC<MenuItemProps> = props => {
   );
 };
 
-export const useMenu = (elementRef: React.RefObject<Element>) => {
+export const useMenu = (elementRef: React.MutableRefObject<Element>) => {
   const setMenuProps = useSetAtom(menuPropsAtom);
 
   const show = useCallback(() => {

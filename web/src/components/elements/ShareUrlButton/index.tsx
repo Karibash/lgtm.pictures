@@ -7,7 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import React, { useCallback, useRef } from 'react';
+import { useObjectRef } from '@react-aria/utils';
+import React, { useCallback } from 'react';
 
 import { useMenu } from '../../../hooks/useMenu';
 import { useSnackbar } from '../../../hooks/useSnackbar';
@@ -18,12 +19,14 @@ export type ShareUrlButtonProps = {
   size?: 'small' | 'medium' | 'large';
 };
 
-const ShareUrlButton: React.FC<ShareUrlButtonProps> = ({
+const ShareUrlButton: React.ForwardRefRenderFunction<HTMLButtonElement, ShareUrlButtonProps> = ({
   url,
   size,
-}) => {
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const { Menu, MenuItem, ...menu } = useMenu(buttonRef);
+  ...props
+}, forwardRef) => {
+  const ref = useObjectRef(forwardRef);
+
+  const { Menu, MenuItem, ...menu } = useMenu(ref);
   const snackbar = useSnackbar();
 
   const handleClickLinkCopy = useCallback(() => {
@@ -38,7 +41,7 @@ const ShareUrlButton: React.FC<ShareUrlButtonProps> = ({
   return (
     <>
       <Tooltip enterDelay={1000} title="share url">
-        <IconButton color="secondary" ref={buttonRef} size={size} onClick={menu.show}>
+        <IconButton {...props} ref={ref} color="secondary" size={size} onClick={menu.show}>
           <ShareIcon fontSize={size} />
         </IconButton>
       </Tooltip>
@@ -67,4 +70,4 @@ const ShareUrlButton: React.FC<ShareUrlButtonProps> = ({
   );
 };
 
-export default ShareUrlButton;
+export default React.forwardRef(ShareUrlButton);

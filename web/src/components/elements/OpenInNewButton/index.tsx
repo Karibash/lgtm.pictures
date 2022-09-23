@@ -11,18 +11,19 @@ export type OpenInNewButtonProps = {
   icon?: OverridableComponent<SvgIconTypeMap> ;
 };
 
-const OpenInNewButton: React.FC<OpenInNewButtonProps> = ({
+const OpenInNewButton: React.ForwardRefRenderFunction<HTMLAnchorElement, OpenInNewButtonProps> = ({
   href,
   size,
   icon: IconComponent = OpenInNewIcon,
-}) => {
+  ...props
+}, forwardRef) => {
   return (
-    <Tooltip enterDelay={1000} title="open in new">
-      <IconButton target="_blank" rel="noreferrer noopener" href={href} size={size}>
+    <Tooltip enterDelay={1000} title="open in a new tab">
+      <IconButton {...props} ref={forwardRef} target="_blank" rel="noreferrer noopener" href={href} size={size}>
         <IconComponent fontSize={size} />
       </IconButton>
     </Tooltip>
   );
 };
 
-export default OpenInNewButton;
+export default React.forwardRef(OpenInNewButton);

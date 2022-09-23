@@ -9,8 +9,10 @@ export type TabLinkProps = {
   href: string;
 };
 
-const TabLink: React.FC<TabLinkProps> = props => {
-  return <Tab {...props} component={Inner} />;
+const TabLink: React.ForwardRefRenderFunction<HTMLAnchorElement, TabLinkProps> = ({
+  ...props
+}, forwardRef) => {
+  return <Tab {...props} ref={forwardRef} component={Inner} />;
 };
 
-export default TabLink;
+export default React.forwardRef(TabLink);

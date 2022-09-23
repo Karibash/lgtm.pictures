@@ -27,6 +27,7 @@
     "uuid": "9.0.0"
   },
   "devDependencies": {
+    "@react-aria/utils": "3.13.3",
     "@serverless-stack/static-site-env": "1.9.4",
     "@sls-next/lambda-at-edge": "3.7.0",
     "@storybook/addon-a11y": "6.5.12",
