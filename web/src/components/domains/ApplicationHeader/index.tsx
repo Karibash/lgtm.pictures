@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import React from 'react';
 
 import OpenInNewButton from '../../elements/OpenInNewButton';
-import ApplicationLogo from '../ApplicationLogo';
+import BrandIcon from '../../icons/BrandIcon';
 
 const Wrapper = styled(AppBar)`
   backdrop-filter: blur(18px);
@@ -32,7 +32,7 @@ const ApplicationHeader: React.FC<ApplicationHeaderProps> = ({
       <Toolbar>
         <Stack direction="row" width="100%" alignItems="center" justifyContent="space-between">
           <IconButton color="primary" size="medium" href="/">
-            <ApplicationLogo fontSize="large" />
+            <BrandIcon fontSize="large" />
           </IconButton>
           <Stack direction="row" gap={1.5}>
             <ExternalLink

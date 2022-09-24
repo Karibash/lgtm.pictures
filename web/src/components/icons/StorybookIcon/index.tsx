@@ -1,4 +1,5 @@
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import SvgIcon, { SvgIconProps, SvgIconTypeMap } from '@mui/material/SvgIcon';
 import React from 'react';
 
 export type StorybookIconProps = SvgIconProps;
@@ -13,4 +14,4 @@ const StorybookIcon: React.ForwardRefRenderFunction<SVGSVGElement, StorybookIcon
   );
 };
 
-export default React.forwardRef(StorybookIcon);
+export default React.forwardRef(StorybookIcon) as OverridableComponent<SvgIconTypeMap>;

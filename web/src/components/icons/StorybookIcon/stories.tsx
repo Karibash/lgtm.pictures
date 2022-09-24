@@ -4,7 +4,7 @@ import React from 'react';
 import StorybookIcon from './index';
 
 export default {
-  title: 'Element/StorybookIcon',
+  title: 'Icons/StorybookIcon',
   component: StorybookIcon,
 } as ComponentMeta<typeof StorybookIcon>;
 
