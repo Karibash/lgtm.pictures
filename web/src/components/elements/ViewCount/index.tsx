@@ -1,5 +1,6 @@
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import React, { useMemo } from 'react';
 
@@ -19,10 +20,12 @@ const ViewCount: React.ForwardRefRenderFunction<HTMLDivElement, ViewCountProps> 
   }, [count]);
 
   return (
-    <Stack {...props} ref={forwardRef} direction="row">
-      <VisibilityIcon fontSize={size} />
-      <Typography fontSize={size} ml={.5}>{displayCount}</Typography>
-    </Stack>
+    <Tooltip enterDelay={1000} title="view count">
+      <Stack {...props} ref={forwardRef} direction="row">
+        <VisibilityIcon fontSize={size} />
+        <Typography fontSize={size} ml={.5}>{displayCount}</Typography>
+      </Stack>
+    </Tooltip>
   );
 };
 
