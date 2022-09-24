@@ -49,7 +49,7 @@ const Wrapper = styled(Box)`
     }
   }
 
-  .MuiButtonBase-root {
+  .event {
     pointer-events: auto;
   }
 `;
@@ -148,11 +148,11 @@ const ItemImage: React.FC<ItemImageProps> = ({
         />
       </ImageWrapper>
       <Header className="header">
-        <PostBlockButton size="small" />
-        <OpenInNewButton size="small" href={`/posts/${id}`} />
+        <PostBlockButton className="event" size="small" />
+        <OpenInNewButton className="event" size="small" href={`/posts/${id}`} />
       </Header>
       <Footer className="footer">
-        <ViewCount size="small" count={viewCount} />
+        <ViewCount className="event" size="small" count={viewCount} />
       </Footer>
     </Wrapper>
   );
