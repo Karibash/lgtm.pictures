@@ -17,14 +17,16 @@ const mocks = [...Array<undefined>(50)].map((_, index) => ({
 }));
 
 export type PostListProps = {
+  className?: string;
   posts: ItemProps[];
 };
 
 const PostList: React.FC<PostListProps> = ({
   posts ,
+  ...props
 }) => {
   return (
-    <Masonry columns={{ lg: 5, md: 4, sm: 3, xs: 2 }} spacing={1}>
+    <Masonry {...props} columns={{ lg: 5, md: 4, sm: 3, xs: 2 }} spacing={1}>
       {[...posts, ...mocks].map(post => (
         <Item key={post.id} {...post} />
       ))}

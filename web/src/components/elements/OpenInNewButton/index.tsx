@@ -6,6 +6,7 @@ import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 
 export type OpenInNewButtonProps = {
+  className?: string;
   href: string;
   size?: 'small' | 'medium' | 'large';
   icon?: OverridableComponent<SvgIconTypeMap> ;

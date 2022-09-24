@@ -8,11 +8,13 @@ import React, { useCallback } from 'react';
 import { useSnackbar } from '../../../hooks/useSnackbar';
 
 export type PostBlockButtonProps = {
+  className?: string;
   size?: 'small' | 'medium' | 'large';
 };
 
 const PostBlockButton: React.FC<PostBlockButtonProps> = ({
   size,
+  ...props
 }) => {
   const snackbar = useSnackbar();
 
@@ -26,7 +28,7 @@ const PostBlockButton: React.FC<PostBlockButtonProps> = ({
 
   return (
     <Tooltip title="block the post">
-      <IconButton color="error" size={size} onClick={handleClick}>
+      <IconButton {...props} color="error" size={size} onClick={handleClick}>
         <BlockIcon fontSize={size} />
       </IconButton>
     </Tooltip>

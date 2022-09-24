@@ -12,9 +12,15 @@ const Wrapper = styled(AppBar)`
   border-bottom: solid thin ${props => alpha(props.theme.palette.divider, .76)};
 `;
 
-const ApplicationHeader: React.FC = () => {
+export type ApplicationHeaderProps = {
+  className?: string;
+};
+
+const ApplicationHeader: React.FC<ApplicationHeaderProps> = ({
+  ...props
+}) => {
   return (
-    <Wrapper elevation={0}>
+    <Wrapper {...props} elevation={0}>
       <Toolbar>
         <IconButton color="primary" size="medium" href="/">
           <ApplicationLogo fontSize="large" />

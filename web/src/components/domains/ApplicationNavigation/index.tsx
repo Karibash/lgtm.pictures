@@ -5,7 +5,13 @@ import React, { useCallback } from 'react';
 
 import TabLink from '../../elements/TabLink';
 
-const ApplicationNavigation: React.FC = () => {
+export type ApplicationNavigationProps = {
+  className?: string;
+};
+
+const ApplicationNavigation: React.FC = ({
+  ...props
+}) => {
   const router = useRouter();
 
   const handleOnChange = useCallback((event: React.SyntheticEvent, value: string) => {
@@ -13,7 +19,7 @@ const ApplicationNavigation: React.FC = () => {
   }, [router]);
 
   return (
-    <Box sx={{ borderBottom: 1, borderColor: 'divider' }} component="nav">
+    <Box {...props} sx={{ borderBottom: 1, borderColor: 'divider' }} component="nav">
       <Tabs variant="fullWidth" value={router.pathname} onChange={handleOnChange}>
         <TabLink label="LATEST" value="/" href="/" />
         <TabLink label="TRENDS" value="/trends" href="/trends" />

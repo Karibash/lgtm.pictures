@@ -4,6 +4,7 @@ import React from 'react';
 import Inner from './parts/Inner';
 
 export type TabLinkProps = {
+  className?: string;
   label: React.ReactNode;
   value: string;
   href: string;

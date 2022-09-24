@@ -15,6 +15,7 @@ import { useSnackbar } from '../../../hooks/useSnackbar';
 import Link from './parts/Link';
 
 export type ShareUrlButtonProps = {
+  className?: string;
   url: string;
   size?: 'small' | 'medium' | 'large';
 };

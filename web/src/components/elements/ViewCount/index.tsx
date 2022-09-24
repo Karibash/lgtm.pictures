@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import React, { useMemo } from 'react';
 
 export type ViewCountProps = {
+  className?: string;
   count: number;
   size?: 'small' | 'medium' | 'large';
 };
