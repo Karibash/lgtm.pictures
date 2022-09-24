@@ -18,7 +18,7 @@ const OpenInNewButton: React.ForwardRefRenderFunction<HTMLAnchorElement, OpenInN
   ...props
 }, forwardRef) => {
   return (
-    <Tooltip enterDelay={1000} title="open in a new tab">
+    <Tooltip title="open in a new tab">
       <IconButton {...props} ref={forwardRef} target="_blank" rel="noreferrer noopener" href={href} size={size}>
         <IconComponent fontSize={size} />
       </IconButton>

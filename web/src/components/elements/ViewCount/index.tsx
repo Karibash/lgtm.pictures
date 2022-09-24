@@ -20,7 +20,7 @@ const ViewCount: React.ForwardRefRenderFunction<HTMLDivElement, ViewCountProps> 
   }, [count]);
 
   return (
-    <Tooltip enterDelay={1000} title="view count">
+    <Tooltip title="view count">
       <Stack {...props} ref={forwardRef} direction="row">
         <VisibilityIcon fontSize={size} />
         <Typography fontSize={size} ml={.5}>{displayCount}</Typography>

@@ -18,7 +18,7 @@ const PostFavoriteButton: React.FC<PostFavoriteButtonProps> = ({
   }, []);
 
   return (
-    <Tooltip enterDelay={1000} title={favorited ? 'unfavorite' : 'favorite'}>
+    <Tooltip title={favorited ? 'unfavorite' : 'favorite'}>
       <IconButton
         size={size}
         color={favorited ? 'primary': 'default'}

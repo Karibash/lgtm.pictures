@@ -25,7 +25,7 @@ const PostBlockButton: React.FC<PostBlockButtonProps> = ({
   }, [snackbar]);
 
   return (
-    <Tooltip enterDelay={1000} title="block the post">
+    <Tooltip title="block the post">
       <IconButton color="error" size={size} onClick={handleClick}>
         <BlockIcon fontSize={size} />
       </IconButton>

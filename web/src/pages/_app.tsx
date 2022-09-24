@@ -65,6 +65,13 @@ const theme = createTheme({
       contrastText: '#000',
     },
   },
+  components: {
+    MuiTooltip: {
+      defaultProps: {
+        enterDelay: 1000,
+      },
+    },
+  },
 });
 
 export type PageComponent<P = Record<string, unknown>> = NextPage<P> & {

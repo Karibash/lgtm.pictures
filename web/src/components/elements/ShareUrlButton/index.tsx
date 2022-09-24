@@ -40,7 +40,7 @@ const ShareUrlButton: React.ForwardRefRenderFunction<HTMLButtonElement, ShareUrl
 
   return (
     <>
-      <Tooltip enterDelay={1000} title="share url">
+      <Tooltip title="share url">
         <IconButton {...props} ref={ref} color="secondary" size={size} onClick={menu.show}>
           <ShareIcon fontSize={size} />
         </IconButton>
