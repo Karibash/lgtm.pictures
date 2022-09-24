@@ -8,6 +8,7 @@ import React from 'react';
 
 import OpenInNewButton from '../../elements/OpenInNewButton';
 import BrandIcon from '../../icons/BrandIcon';
+import StorybookIcon from '../../icons/StorybookIcon';
 
 const Wrapper = styled(AppBar)`
   backdrop-filter: blur(18px);
@@ -35,6 +36,11 @@ const ApplicationHeader: React.FC<ApplicationHeaderProps> = ({
             <BrandIcon fontSize="large" />
           </IconButton>
           <Stack direction="row" gap={1.5}>
+            <ExternalLink
+              size="small"
+              href="https://main--63232d27c005aaa9d78d15b3.chromatic.com/"
+              icon={StorybookIcon}
+            />
             <ExternalLink
               size="small"
               href="https://github.com/Karibash/lgtm.pictures"
