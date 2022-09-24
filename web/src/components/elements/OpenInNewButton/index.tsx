@@ -7,19 +7,21 @@ import React from 'react';
 
 export type OpenInNewButtonProps = {
   className?: string;
+  title: string;
   href: string;
   size?: 'small' | 'medium' | 'large';
   icon?: OverridableComponent<SvgIconTypeMap> ;
 };
 
 const OpenInNewButton: React.ForwardRefRenderFunction<HTMLAnchorElement, OpenInNewButtonProps> = ({
+  title,
   href,
   size,
   icon: IconComponent = OpenInNewIcon,
   ...props
 }, forwardRef) => {
   return (
-    <Tooltip title="open in a new tab">
+    <Tooltip title={title}>
       <IconButton {...props} ref={forwardRef} target="_blank" rel="noreferrer noopener" href={href} size={size}>
         <IconComponent fontSize={size} />
       </IconButton>

@@ -149,7 +149,7 @@ const ItemImage: React.FC<ItemImageProps> = ({
       </ImageWrapper>
       <Header className="header">
         <PostBlockButton className="event" size="small" />
-        <OpenInNewButton className="event" size="small" href={`/posts/${id}`} />
+        <OpenInNewButton className="event" size="small" title="image url" href={`/posts/${id}`} />
       </Header>
       <Footer className="footer">
         <ViewCount className="event" size="small" count={viewCount} />

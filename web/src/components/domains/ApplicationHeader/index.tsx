@@ -38,11 +38,13 @@ const ApplicationHeader: React.FC<ApplicationHeaderProps> = ({
           <Stack direction="row" gap={1.5}>
             <ExternalLink
               size="small"
+              title="Storybook"
               href="https://main--63232d27c005aaa9d78d15b3.chromatic.com/"
               icon={StorybookIcon}
             />
             <ExternalLink
               size="small"
+              title="GitHub repository"
               href="https://github.com/Karibash/lgtm.pictures"
               icon={GitHubIcon}
             />

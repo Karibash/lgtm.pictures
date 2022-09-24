@@ -12,5 +12,6 @@ const Template: ComponentStory<typeof OpenInNewButton> = args => <OpenInNewButto
 
 export const Default = Template.bind({});
 Default.args = {
+  title: 'Google',
   href: 'https://google.com',
 };
