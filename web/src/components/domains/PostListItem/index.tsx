@@ -2,36 +2,29 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { Provider } from 'jotai';
-import { useRouter } from 'next/router';
-import React, { useCallback, useRef } from 'react';
+import React, { useRef } from 'react';
 
-import { useRootUrl } from '../../../../hooks/useRootUrl';
-import ShareUrlButton from '../../../elements/ShareUrlButton';
-import PostFavoriteButton from '../../PostFavoriteButton';
-import ItemImage, { ItemImageProps } from './ItemImage';
+import { useRootUrl } from '../../../hooks/useRootUrl';
+import ShareUrlButton from '../../elements/ShareUrlButton';
+import PostFavoriteButton from '../PostFavoriteButton';
+import ItemImage, { ItemImageProps } from './parts/ItemImage';
 
-export type ItemProps = ItemImageProps & {
+export type PostListItemProps = ItemImageProps & {
   id: string;
   favorited: boolean;
   favoriteCount: number;
 };
 
-const Item: React.FC<ItemProps> = ({
+const PostListItem: React.FC<PostListItemProps> = ({
   favorited,
   favoriteCount,
   ...props
 }) => {
   const footerRef = useRef();
-  const router = useRouter();
   const rootUrl = useRootUrl();
 
-  const handleClickFooter = useCallback<React.MouseEventHandler>(event => {
-    if (event.target !== footerRef.current) return;
-    void router.push(`/posts/${props.id}`);
-  }, [props.id, router]);
-
   return (
-    <Paper elevation={6} sx={{ overflow: 'hidden', cursor: 'pointer' }}>
+    <Paper elevation={6} sx={{ display: 'inline-block', overflow: 'hidden' }}>
       <ItemImage {...props} />
       <Stack
         ref={footerRef}
@@ -40,7 +33,6 @@ const Item: React.FC<ItemProps> = ({
         alignItems="center"
         spacing={2}
         p={0.5}
-        onClick={handleClickFooter}
       >
         <Stack direction="row" alignItems="center">
           <PostFavoriteButton favorited={favorited} />
@@ -54,4 +46,4 @@ const Item: React.FC<ItemProps> = ({
   );
 };
 
-export default Item;
+export default PostListItem;
