@@ -23,6 +23,5 @@ it('create an file upload url', async () => {
   expect(createFileUploadUrlSpy).toHaveBeenCalledTimes(1);
 
   expect(fileUploadUrl).not.toBeNull();
-  expect(fileUploadUrl.id).toBe('id');
-  expect(fileUploadUrl.url).toBe('url');
+  expect(fileUploadUrl).toBe('url');
 });

@@ -1,25 +1,27 @@
-import { StackContext, AppSyncApi, use } from '@serverless-stack/resources';
+import { Api as ApiGateway, StackContext, use } from '@serverless-stack/resources';
 
 import { TemporalBucket } from './Bucket';
 
 export const Api = ({ stack }: StackContext) => {
   const temporalBucket = use(TemporalBucket);
 
-  const api = new AppSyncApi(stack, 'Api', {
+  return new ApiGateway(stack, 'Api', {
     defaults: {
       function: {
+        permissions: [
+          temporalBucket.bucket,
+        ],
         config: [
           ...temporalBucket.parameters,
         ],
       },
     },
-    schema: 'graphql/schemas/schema.graphql',
-    resolvers: {
-      'Mutation createFileUploadUrl': 'functions/graphql/createFileUploadUrl.handler',
+    cors: {
+      allowMethods: ['GET', 'POST'],
+    },
+    routes: {
+      'GET /api/trpc/{proxy+}': 'functions/trpc/index.handler',
+      'POST /api/trpc/{proxy+}': 'functions/trpc/index.handler',
     },
   });
-
-  api.attachPermissionsToDataSource('Mutation createFileUploadUrl', [temporalBucket.bucket]);
-
-  return api;
 };

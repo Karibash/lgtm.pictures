@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "sst-env -- next dev",
     "dev:storybook": "start-storybook -p 6006",
     "build": "next build",
     "build:storybook": "build-storybook",
@@ -16,14 +16,16 @@
     "@mui/icons-material": "5.10.3",
     "@mui/lab": "5.0.0-alpha.97",
     "@mui/material": "5.10.3",
-    "graphql": "16.6.0",
+    "@tanstack/react-query": "4.7.1",
+    "@trpc/client": "10.0.0-proxy-beta.8",
+    "@trpc/next": "10.0.0-proxy-beta.8",
+    "@trpc/react": "10.0.0-proxy-beta.8",
+    "ahooks": "3.7.1",
     "jotai": "1.8.3",
     "next": "12.3.0",
-    "next-urql": "4.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-is": "18.2.0",
-    "urql": "3.0.1",
+    "superjson": "1.10.0",
     "uuid": "9.0.0"
   },
   "devDependencies": {
@@ -41,7 +43,6 @@
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "@types/uuid": "8.3.4",
-    "ahooks": "3.7.1",
     "storybook-addon-next": "1.6.9",
     "storybook-addon-swc": "1.1.8",
     "typescript": "4.8.2"

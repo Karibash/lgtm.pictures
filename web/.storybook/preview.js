@@ -21,5 +21,5 @@ export const parameters = {
 };
 
 export const decorators = [
-  Story => <App Component={Story} />
+  Story => <App Component={Story} pageProps={{}} />
 ];

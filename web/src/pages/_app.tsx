@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { ReactElement, ReactNode } from 'react';
 
 import { SnackbarProvider } from '../hooks/useSnackbar';
+import { trpc } from '../trpc';
 
 const cache = createCache({ key: 'css' });
 
@@ -104,4 +105,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default App;
+export default trpc.withTRPC(App);

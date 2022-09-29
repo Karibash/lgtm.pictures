@@ -1,6 +1,0 @@
-overwrite: true
-schema: 'schemas/**/*.graphql'
-generates:
-  types/index.d.ts:
-    plugins:
-      - typescript
