@@ -1,4 +1,5 @@
 import Masonry from '@mui/lab/Masonry';
+import NoSsr from '@mui/material/NoSsr';
 import React from 'react';
 
 import PostListItem, { PostListItemProps } from '../PostListItem';
@@ -26,11 +27,13 @@ const PostList: React.FC<PostListProps> = ({
   ...props
 }) => {
   return (
-    <Masonry {...props} columns={{ lg: 5, md: 4, sm: 3, xs: 2 }} spacing={1}>
-      {[...posts, ...mocks].map(post => (
-        <PostListItem key={post.id} {...post} />
-      ))}
-    </Masonry>
+    <NoSsr>
+      <Masonry {...props} columns={{ lg: 5, md: 4, sm: 3, xs: 2 }} spacing={1}>
+        {[...posts, ...mocks].map(post => (
+          <PostListItem key={post.id} {...post} />
+        ))}
+      </Masonry>
+    </NoSsr>
   );
 };
 
