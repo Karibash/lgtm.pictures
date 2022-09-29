@@ -123,6 +123,7 @@ const ItemImage: React.FC<ItemImageProps> = ({
   return (
     <Wrapper ref={ref}>
       <Image
+        priority
         src={image.url}
         alt={image.title}
         width={image.width}
