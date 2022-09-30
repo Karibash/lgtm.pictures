@@ -1,6 +1,9 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { cache } from '@emotion/css';
+import createEmotionServer from '@emotion/server/create-instance';
+import { NextComponentType } from 'next';
+import NextDocument, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps, DocumentProps } from 'next/document';
 
-const Document = () => {
+const Document: NextComponentType<DocumentContext, DocumentInitialProps, DocumentProps> = () => {
   // noinspection HtmlRequiredTitleElement
   return (
     <Html lang="ja">
@@ -22,6 +25,26 @@ const Document = () => {
       </body>
     </Html>
   );
+};
+
+Document.getInitialProps = async context => {
+  const page = await context.renderPage();
+  const server = createEmotionServer(cache);
+  const { ids, css } = server.extractCritical(page.html);
+
+  const initialProps = await NextDocument.getInitialProps(context);
+  return {
+    ...initialProps,
+    styles: (
+      <>
+        {initialProps.styles}
+        <style
+          data-emotion={`css ${ids.join(' ')}`}
+          dangerouslySetInnerHTML={{ __html: css }}
+        />
+      </>
+    ),
+  };
 };
 
 export default Document;

@@ -1,16 +1,14 @@
-import createCache from '@emotion/cache';
+import { cache } from '@emotion/css';
 import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NextPage } from 'next';
-import { AppProps as NextAppProps } from 'next/app';
+import { NextComponentType, NextPage } from 'next';
+import { AppProps as NextAppProps, AppContext, AppInitialProps } from 'next/app';
 import Head from 'next/head';
 import { ReactElement, ReactNode } from 'react';
 
 import { SnackbarProvider } from '../hooks/useSnackbar';
 import { trpc } from '../trpc';
-
-const cache = createCache({ key: 'css' });
 
 const theme = createTheme({
   typography: {
@@ -83,7 +81,10 @@ export type AppProps = NextAppProps & {
   Component: PageComponent;
 };
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
+  Component,
+  pageProps,
+}) => {
   const getLayout = Component.getLayout ?? (page => page);
 
   // noinspection HtmlRequiredTitleElement
