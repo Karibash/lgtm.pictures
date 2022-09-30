@@ -6,7 +6,7 @@ import superjson from 'superjson';
 const endpoint = `${process.env.NEXT_PUBLIC_API_URL ?? ''}/api/trpc`;
 
 export const trpc = createTRPCNext<AppRouter>({
-  ssr: true,
+  ssr: false,
   config: ({ ctx }) => {
     const isClient = typeof window !== 'undefined';
     return {
