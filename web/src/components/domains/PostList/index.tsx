@@ -1,5 +1,8 @@
-import Masonry from '@mui/lab/Masonry';
-import NoSsr from '@mui/material/NoSsr';
+import { CSSInterpolation } from '@mui/material';
+import ImageList from '@mui/material/ImageList';
+import { styled } from '@mui/material/styles';
+import { handleBreakpoints } from '@mui/system';
+import { resolveBreakpointValues } from '@mui/system/breakpoints';
 import React from 'react';
 
 import PostListItem, { PostListItemProps } from '../PostListItem';
@@ -17,6 +20,21 @@ const mocks = [...Array<undefined>(25)].map((_, index) => ({
   favoriteCount: (index % 3) * 10,
 }));
 
+const Wrapper = styled(ImageList)(({ theme }) => ({
+  margin: 0,
+  columnGap: 8,
+  ...handleBreakpoints(
+    { theme },
+    resolveBreakpointValues({
+      values: { lg: 5, md: 4, sm: 3, xs: 2 },
+      breakpoints: theme.breakpoints.values,
+    }),
+    value => ({
+      columnCount: value,
+    }),
+  ),
+}) as CSSInterpolation);
+
 export type PostListProps = {
   className?: string;
   posts: PostListItemProps[];
@@ -27,13 +45,11 @@ const PostList: React.FC<PostListProps> = ({
   ...props
 }) => {
   return (
-    <NoSsr>
-      <Masonry {...props} columns={{ lg: 5, md: 4, sm: 3, xs: 2 }} spacing={1}>
-        {[...posts, ...mocks].map(post => (
-          <PostListItem key={post.id} {...post} />
-        ))}
-      </Masonry>
-    </NoSsr>
+    <Wrapper {...props} variant="masonry" style={{ columnGap: undefined, columnCount: undefined }}>
+      {[...posts, ...mocks].map(post => (
+        <PostListItem key={post.id} {...post} />
+      ))}
+    </Wrapper>
   );
 };
 

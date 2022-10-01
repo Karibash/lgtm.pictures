@@ -1,3 +1,4 @@
+import ImageListItem from '@mui/material/ImageListItem';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -16,6 +17,9 @@ export type PostListItemProps = ItemImageProps & {
 };
 
 const PostListItem: React.FC<PostListItemProps> = ({
+  id,
+  image,
+  viewCount,
   favorited,
   favoriteCount,
   ...props
@@ -24,25 +28,27 @@ const PostListItem: React.FC<PostListItemProps> = ({
   const rootUrl = useRootUrl();
 
   return (
-    <Paper elevation={6} sx={{ display: 'inline-block', overflow: 'hidden' }}>
-      <ItemImage {...props} />
-      <Stack
-        ref={footerRef}
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        spacing={2}
-        p={0.5}
-      >
-        <Stack direction="row" alignItems="center">
-          <PostFavoriteButton favorited={favorited} />
-          <Typography ml={0.5}>{favoriteCount}</Typography>
+    <ImageListItem {...props}>
+      <Paper elevation={6} sx={{ overflow: 'hidden' }}>
+        <ItemImage id={id} image={image} viewCount={viewCount} />
+        <Stack
+          ref={footerRef}
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+          p={0.5}
+        >
+          <Stack direction="row" alignItems="center">
+            <PostFavoriteButton favorited={favorited} />
+            <Typography ml={0.5}>{favoriteCount}</Typography>
+          </Stack>
+          <Provider>
+            <ShareUrlButton url={`${rootUrl}/posts/${id}`} />
+          </Provider>
         </Stack>
-        <Provider>
-          <ShareUrlButton url={`${rootUrl}/posts/${props.id}`} />
-        </Provider>
-      </Stack>
-    </Paper>
+      </Paper>
+    </ImageListItem>
   );
 };
 
