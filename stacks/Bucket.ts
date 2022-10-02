@@ -1,8 +1,10 @@
-import { StackContext, Bucket, Config } from '@serverless-stack/resources';
+import { Bucket, Config } from '@serverless-stack/resources';
 import { Duration } from 'aws-cdk-lib';
 import { Distribution } from 'aws-cdk-lib/aws-cloudfront';
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { BlockPublicAccess } from 'aws-cdk-lib/aws-s3';
+
+import type { StackContext } from '@serverless-stack/resources';
 
 export const TemporalBucket = ({ stack }: StackContext) => {
   const bucket = new Bucket(stack, 'TemporalBucket', {

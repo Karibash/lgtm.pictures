@@ -1,7 +1,8 @@
 import Head from 'next/head';
 
-import { PageComponent } from '../../../pages/_app';
 import ApplicationLayout from '../../layouts/ApplicationLayout';
+
+import type { PageComponent } from '../../../pages/_app';
 
 const UploadsPage: PageComponent = () => {
   return (

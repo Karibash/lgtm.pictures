@@ -1,7 +1,8 @@
-import { AppRouter } from '@lgtm/services/functions/trpc/routers/app';
 import { httpBatchLink } from '@trpc/client';
 import { createTRPCNext } from '@trpc/next';
 import superjson from 'superjson';
+
+import type { AppRouter } from '@lgtm/services/functions/trpc/routers/app';
 
 const endpoint = `${process.env.NEXT_PUBLIC_API_URL ?? ''}/api/trpc`;
 

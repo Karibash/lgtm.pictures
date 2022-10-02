@@ -31,7 +31,7 @@ module.exports = {
     }],
     'import/newline-after-import': ['error', { count: 1 }],
     'import/order': ['error', {
-      groups: ['builtin', 'external', 'internal', ['parent', 'sibling'], 'object', 'type', 'index'],
+      groups: ['builtin', 'external', 'internal', ['index', 'parent', 'sibling'], 'object', 'type'],
       'newlines-between': 'always',
       pathGroupsExcludedImportTypes: ['builtin'],
       alphabetize: { order: 'asc', caseInsensitive: true },
@@ -91,6 +91,9 @@ module.exports = {
           anonymous: 'always',
           named: 'never',
           asyncArrow: 'always',
+        }],
+        '@typescript-eslint/consistent-type-imports': ['error', {
+          prefer: 'type-imports',
         }],
       },
     },

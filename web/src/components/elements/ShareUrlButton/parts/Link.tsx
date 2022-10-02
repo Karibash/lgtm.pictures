@@ -1,5 +1,7 @@
-import MaterialLink, { LinkProps } from '@mui/material/Link';
+import MaterialLink from '@mui/material/Link';
 import React from 'react';
+
+import type { LinkProps } from '@mui/material/Link';
 
 const Link: React.FC<Pick<LinkProps, 'href' | 'children'>> = props => {
   return (

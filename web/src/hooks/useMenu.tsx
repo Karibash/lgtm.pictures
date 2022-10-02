@@ -1,7 +1,10 @@
-import MaterialMenu, { MenuProps } from '@mui/material/Menu';
-import MaterialMenuItem, { MenuItemProps } from '@mui/material/MenuItem';
+import MaterialMenu from '@mui/material/Menu';
+import MaterialMenuItem from '@mui/material/MenuItem';
 import { atom, useAtom, useSetAtom } from 'jotai';
 import React, { useCallback } from 'react';
+
+import type { MenuProps } from '@mui/material/Menu';
+import type { MenuItemProps } from '@mui/material/MenuItem';
 
 const menuPropsAtom = atom<MenuProps>({ open: false });
 

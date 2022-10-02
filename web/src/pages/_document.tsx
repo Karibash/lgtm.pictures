@@ -1,7 +1,9 @@
 import { cache } from '@emotion/css';
 import createEmotionServer from '@emotion/server/create-instance';
-import { NextComponentType } from 'next';
-import NextDocument, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps, DocumentProps } from 'next/document';
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+
+import type { NextComponentType } from 'next';
+import type { DocumentContext, DocumentInitialProps, DocumentProps } from 'next/document';
 
 const Document: NextComponentType<DocumentContext, DocumentInitialProps, DocumentProps> = () => {
   // noinspection HtmlRequiredTitleElement

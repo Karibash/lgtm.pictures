@@ -1,6 +1,8 @@
-import { StackContext, use, NextjsSite } from '@serverless-stack/resources';
+import { use, NextjsSite } from '@serverless-stack/resources';
 
 import { Api } from './Api';
+
+import type { StackContext } from '@serverless-stack/resources';
 
 export const Web = ({ stack }: StackContext) => {
   const api = use(Api);

@@ -1,8 +1,9 @@
 import Head from 'next/head';
 
-import { PageComponent } from '../../../pages/_app';
 import PostList from '../../domains/PostList';
 import ApplicationLayout from '../../layouts/ApplicationLayout';
+
+import type { PageComponent } from '../../../pages/_app';
 
 const FavoritesPage: PageComponent = () => {
   return (

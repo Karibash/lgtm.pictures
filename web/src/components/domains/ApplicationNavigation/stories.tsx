@@ -1,7 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import ApplicationNavigation from './index';
+
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'Domains/ApplicationNavigation',

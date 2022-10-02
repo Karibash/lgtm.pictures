@@ -1,8 +1,8 @@
-import { App } from '@serverless-stack/resources';
-
 import { Api } from './Api';
 import { TemporalBucket, PublicBucket } from './Bucket';
 import { Web } from './Web';
+
+import type { App } from '@serverless-stack/resources';
 
 export default (app: App) => {
   app.setDefaultFunctionProps({

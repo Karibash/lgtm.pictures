@@ -1,6 +1,8 @@
-import { Api as ApiGateway, StackContext, use } from '@serverless-stack/resources';
+import { Api as ApiGateway, use } from '@serverless-stack/resources';
 
 import { TemporalBucket } from './Bucket';
+
+import type { StackContext } from '@serverless-stack/resources';
 
 export const Api = ({ stack }: StackContext) => {
   const temporalBucket = use(TemporalBucket);

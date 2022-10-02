@@ -8,7 +8,9 @@ import React, { useRef } from 'react';
 import { useRootUrl } from '../../../hooks/useRootUrl';
 import ShareUrlButton from '../../elements/ShareUrlButton';
 import PostFavoriteButton from '../PostFavoriteButton';
-import ItemImage, { ItemImageProps } from './parts/ItemImage';
+import ItemImage from './parts/ItemImage';
+
+import type { ItemImageProps } from './parts/ItemImage';
 
 export type PostListItemProps = ItemImageProps & {
   id: string;

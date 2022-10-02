@@ -1,6 +1,8 @@
-import { OverridableComponent } from '@mui/material/OverridableComponent';
-import SvgIcon, { SvgIconProps, SvgIconTypeMap } from '@mui/material/SvgIcon';
+import SvgIcon from '@mui/material/SvgIcon';
 import React from 'react';
+
+import type { OverridableComponent } from '@mui/material/OverridableComponent';
+import type { SvgIconProps, SvgIconTypeMap } from '@mui/material/SvgIcon';
 
 export type StorybookIconProps = SvgIconProps;
 

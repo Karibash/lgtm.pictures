@@ -1,7 +1,9 @@
-import MaterialSnackbar, { SnackbarProps } from '@mui/material/Snackbar';
+import MaterialSnackbar from '@mui/material/Snackbar';
 import { atom, Provider, useAtom, useSetAtom } from 'jotai';
 import React, { useCallback } from 'react';
 import { v4 as uuid } from 'uuid';
+
+import type { SnackbarProps } from '@mui/material/Snackbar';
 
 const snackbarScope = Symbol();
 const snackbarPropsAtom = atom<SnackbarProps>({});

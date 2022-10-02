@@ -1,11 +1,13 @@
-import { CSSInterpolation } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import { styled } from '@mui/material/styles';
 import { handleBreakpoints } from '@mui/system';
 import { resolveBreakpointValues } from '@mui/system/breakpoints';
 import React from 'react';
 
-import PostListItem, { PostListItemProps } from '../PostListItem';
+import PostListItem from '../PostListItem';
+
+import type { PostListItemProps } from '../PostListItem';
+import type { CSSInterpolation } from '@mui/material';
 
 const mocks = [...Array<undefined>(25)].map((_, index) => ({
   id: index.toString(),

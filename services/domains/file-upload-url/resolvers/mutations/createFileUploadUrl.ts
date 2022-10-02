@@ -1,7 +1,9 @@
 import { ulid } from 'ulid';
 
 import { FileUploadUrlFactory } from '../../factories/FileUploadUrlFactory';
-import { FileUploadUrl, FileUploadUrlSchema } from '../../schema';
+import { FileUploadUrlSchema } from '../../schema';
+
+import type { FileUploadUrl } from '../../schema';
 
 // 5 minutes
 const uploadExpireTime = 60 * 5;

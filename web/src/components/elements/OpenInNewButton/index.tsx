@@ -1,9 +1,10 @@
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import IconButton from '@mui/material/IconButton';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { SvgIconTypeMap } from '@mui/material/SvgIcon/SvgIcon';
 import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
+
+import type { OverridableComponent } from '@mui/material/OverridableComponent';
+import type { SvgIconTypeMap } from '@mui/material/SvgIcon/SvgIcon';
 
 export type OpenInNewButtonProps = {
   className?: string;

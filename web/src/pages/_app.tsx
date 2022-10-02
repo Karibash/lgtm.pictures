@@ -2,13 +2,14 @@ import { cache } from '@emotion/css';
 import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NextComponentType, NextPage } from 'next';
-import { AppProps as NextAppProps, AppContext, AppInitialProps } from 'next/app';
 import Head from 'next/head';
-import { ReactElement, ReactNode } from 'react';
 
 import { SnackbarProvider } from '../hooks/useSnackbar';
 import { trpc } from '../trpc';
+
+import type { NextComponentType, NextPage } from 'next';
+import type { AppProps as NextAppProps, AppContext, AppInitialProps } from 'next/app';
+import type { ReactElement, ReactNode } from 'react';
 
 const theme = createTheme({
   typography: {
