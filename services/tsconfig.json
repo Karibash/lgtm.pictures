@@ -3,14 +3,11 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "paths": {
-      "@lgtm/core/*": ["./core/*"]
-    }
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "clients",
+    "core",
     "domains",
     "functions"
   ]
