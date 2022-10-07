@@ -12,6 +12,14 @@ export const trpc = createTRPCNext<AppRouter>({
     const isClient = typeof window !== 'undefined';
     return {
       transformer: superjson,
+      queryClientConfig: {
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+            refetchOnReconnect: false,
+          },
+        },
+      },
       links: [
         httpBatchLink({
           url: endpoint,
