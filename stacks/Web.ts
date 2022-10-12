@@ -29,6 +29,10 @@ export const Web = ({ stack }: StackContext) => {
   return new NextjsSite(stack, 'site', {
     path: 'web',
     nextBinPath: '../node_modules/.bin/next',
+    customDomain: stack.stage === 'local' ? undefined : {
+      domainName: stack.stage === 'production' ? 'lgtm.pictures' : `${stack.stage}.lgtm.pictures`,
+      domainAlias: stack.stage === 'production' ? 'www.lgtm.pictures' : undefined,
+    },
     cdk: {
       distribution: {
         additionalBehaviors: {

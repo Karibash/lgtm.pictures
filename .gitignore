@@ -10,3 +10,6 @@ node_modules
 
 # local env files
 .env*.local
+
+# AWS CDK context
+cdk.context.json
