@@ -9,6 +9,6 @@ import type { FileUploadUrl } from '../../schema';
 const uploadExpireTime = 60 * 5;
 
 export const createFileUploadUrl = async (): Promise<FileUploadUrl> => {
-  const url = await FileUploadUrlFactory.create(cuid(), uploadExpireTime);
+  const url = await FileUploadUrlFactory.create(`temporal/${cuid()}`, uploadExpireTime);
   return FileUploadUrlSchema.parse(url);
 };

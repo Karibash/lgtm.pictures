@@ -1,18 +1,18 @@
-import { Bucket, Config } from '@serverless-stack/resources';
+import { Bucket } from '@serverless-stack/resources';
 import { Duration } from 'aws-cdk-lib';
-import { Distribution } from 'aws-cdk-lib/aws-cloudfront';
-import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront';
 import { BlockPublicAccess } from 'aws-cdk-lib/aws-s3';
 
 import type { StackContext } from '@serverless-stack/resources';
 
-export const TemporalBucket = ({ stack }: StackContext) => {
-  const bucket = new Bucket(stack, 'TemporalBucket', {
+export const ContentsBucket = ({ stack }: StackContext) => {
+  const bucket = new Bucket(stack, 'ContentsBucket', {
     cdk: {
       bucket: {
         blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
         lifecycleRules: [
           {
+            prefix: 'temporal/',
             expiration: Duration.days(1),
           },
         ],
@@ -20,37 +20,11 @@ export const TemporalBucket = ({ stack }: StackContext) => {
     },
   });
 
-  return {
-    bucket,
-    parameters: [
-      new Config.Parameter(stack, 'TEMPORAL_BUCKET_NAME', {
-        value: bucket.bucketName,
-      }),
-    ],
-  };
-};
-
-export const PublicBucket = ({ stack }: StackContext) => {
-  const bucket = new Bucket(stack, 'PublicBucket', {
-    cdk: {
-      bucket: {
-        blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
-      },
-    },
-  });
-
-  new Distribution(stack, 'PublicBucketDistribution', {
-    defaultBehavior: {
-      origin: new S3Origin(bucket.cdk.bucket),
-    },
-  });
+  const originReadAccessIdentity = new OriginAccessIdentity(stack, 'OAI');
+  bucket.cdk.bucket.grantRead(originReadAccessIdentity);
 
   return {
-    bucket,
-    parameters: [
-      new Config.Parameter(stack, 'PUBLIC_BUCKET_NAME', {
-        value: bucket.bucketName,
-      }),
-    ],
+    contentsBucket: bucket,
+    contentsBucketReadAccessIdentity: originReadAccessIdentity,
   };
 };

@@ -1,18 +1,63 @@
-import { use, NextjsSite } from '@serverless-stack/resources';
+import { NextjsSite, use } from '@serverless-stack/resources';
+import {
+  AllowedMethods,
+  CachedMethods,
+  Function,
+  FunctionCode,
+  FunctionEventType,
+  ViewerProtocolPolicy,
+} from 'aws-cdk-lib/aws-cloudfront';
+import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 
-import { Api } from './Api';
+import { ContentsBucket } from './Bucket';
 
 import type { StackContext } from '@serverless-stack/resources';
 
 export const Web = ({ stack }: StackContext) => {
-  const api = use(Api);
+  const { contentsBucket, contentsBucketReadAccessIdentity } = use(ContentsBucket);
+
+  const removePrefixPathFunction = new Function(stack, 'Function', {
+    code: FunctionCode.fromInline(`
+      function handler(event) {
+        var request = event.request;
+        request.uri = request.uri.replace(/^\\/[^\\/]+\\//,'/');
+        return request;
+      }
+    `),
+  });
 
   return new NextjsSite(stack, 'site', {
     path: 'web',
     nextBinPath: '../node_modules/.bin/next',
+    cdk: {
+      distribution: {
+        additionalBehaviors: {
+          '/contents/*': {
+            compress: true,
+            origin: new S3Origin(contentsBucket.cdk.bucket, {
+              originAccessIdentity: contentsBucketReadAccessIdentity,
+            }),
+            functionAssociations: [{
+              function: removePrefixPathFunction,
+              eventType: FunctionEventType.VIEWER_REQUEST,
+            }],
+            viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+            allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+            cachedMethods: CachedMethods.CACHE_GET_HEAD_OPTIONS,
+          },
+        },
+      },
+    },
+    defaults: {
+      function: {
+        permissions: [
+          contentsBucket,
+        ],
+      },
+    },
     environment: {
       NEXT_PUBLIC_STAGE: stack.stage,
-      NEXT_PUBLIC_API_URL: api.url,
+      CONTENTS_BUCKET_NAME: contentsBucket.bucketName,
     },
   });
 };

@@ -6,9 +6,8 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "clients",
-    "core",
+    "applications",
     "domains",
-    "functions"
+    "infrastructures"
   ]
 }

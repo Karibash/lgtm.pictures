@@ -1,9 +1,9 @@
 import cuid from 'cuid';
 import { z } from 'zod';
 
-import { createPaginationSchema } from '../../../core/helpers/pagination';
-import { PostSchema } from '../../../domains/post/schema';
+import { PostSchema } from '../../domains/post/schema';
 import { t } from '../core/trpc';
+import { createPaginationSchema } from '../helpers/pagination';
 
 const createMocks = (offset: number) => {
   const edges = [...Array<undefined>(25)].map((_, index) => {

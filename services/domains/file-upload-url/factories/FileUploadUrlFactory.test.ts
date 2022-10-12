@@ -1,5 +1,4 @@
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
-import { Config } from '@serverless-stack/node/config';
 import { afterEach, expect, it, vi } from 'vitest';
 
 import { FileUploadUrlFactory } from './FileUploadUrlFactory';
@@ -25,6 +24,6 @@ it('Check that the getSignedUrl function is called correctly.', async () => {
 
   const [, command, options] = (getSignedUrl as Mock).mock.calls[0] as Parameters<typeof getSignedUrl>;
   expect((command as PutObjectCommand).input.Key).toBe(key);
-  expect((command as PutObjectCommand).input.Bucket).toBe(Config.TEMPORAL_BUCKET_NAME);
+  expect((command as PutObjectCommand).input.Bucket).toBe(process.env.TEMPORAL_BUCKET_NAME);
   expect(options?.expiresIn).toBe(expiresIn);
 });
