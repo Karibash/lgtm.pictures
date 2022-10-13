@@ -1,9 +1,9 @@
 import { t } from '../core/trpc';
-import { fileUploadUrlRouter } from './file-upload-url';
+import { imageUploadEndpointRouter } from './image-upload-endpoint';
 import { postsRouter } from './posts';
 
 export const appRouter = t.router({
-  fileUploadUrl: fileUploadUrlRouter,
+  imageUploadEndpoint: imageUploadEndpointRouter,
   posts: postsRouter,
 });
 
